@@ -1,0 +1,342 @@
+{
+	"info": {
+		"_postman_id": "b5e30c28-7a36-4304-99de-9a184def75ab",
+		"name": "RecuperatorioPP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "registro",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41f3c89c-a429-4d14-a069-1dcc2317e481",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user@email",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "321",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "user",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/recuperatorioPP_Programacion3_Zanoni/index.php/registro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recuperatorioPP_Programacion3_Zanoni",
+						"index.php",
+						"registro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "41f3c89c-a429-4d14-a069-1dcc2317e481",
+						"exec": [
+							"var token =pm.response.json();\r",
+							"\r",
+							"pm.globals.set(\"access_token\",token.data);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "user@email",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "321",
+							"type": "text"
+						},
+						{
+							"key": "modelo",
+							"value": "Uno",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "precio",
+							"value": "120000",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/recuperatorioPP_Programacion3_Zanoni/index.php/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recuperatorioPP_Programacion3_Zanoni",
+						"index.php",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingresoVehiculo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "patente",
+							"value": "890",
+							"type": "text"
+						},
+						{
+							"key": "marca",
+							"value": "renault",
+							"type": "text"
+						},
+						{
+							"key": "modelo",
+							"value": "clio",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "170000",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/recuperatorioPP_Programacion3_Zanoni/index.php/vehiculo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recuperatorioPP_Programacion3_Zanoni",
+						"index.php",
+						"vehiculo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "obtenerOcurrencia",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/practicaRecu/index.php/patente/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"practicaRecu",
+						"index.php",
+						"patente",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ingresarServicio",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "3",
+							"type": "text"
+						},
+						{
+							"key": "tipo",
+							"value": "20000km",
+							"type": "text"
+						},
+						{
+							"key": "precio",
+							"value": "3000",
+							"type": "text"
+						},
+						{
+							"key": "demora",
+							"value": "30 dias",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/recuperatorioPP_Programacion3_Zanoni/index.php/servicio",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recuperatorioPP_Programacion3_Zanoni",
+						"index.php",
+						"servicio"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "IngresarTurno",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost/recuperatorioPP_Programacion3_Zanoni/index.php/turno?patente=111&fecha=21-10-2020&servicio=20000km",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recuperatorioPP_Programacion3_Zanoni",
+						"index.php",
+						"turno"
+					],
+					"query": [
+						{
+							"key": "patente",
+							"value": "111"
+						},
+						{
+							"key": "fecha",
+							"value": "21-10-2020"
+						},
+						{
+							"key": "servicio",
+							"value": "20000km"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "stats",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{access_token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tipo_servicio",
+							"value": "25000km",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/recuperatorioPP_Programacion3_Zanoni/index.php/stats",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"recuperatorioPP_Programacion3_Zanoni",
+						"index.php",
+						"stats"
+					],
+					"query": [
+						{
+							"key": "tipo_servicio",
+							"value": "10000km",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
